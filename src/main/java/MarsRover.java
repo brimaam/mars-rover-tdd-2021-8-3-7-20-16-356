@@ -90,4 +90,6 @@ public class MarsRover {
         this.status = new RoverStatus(x, y, direction);
     }
 
+    public void executeCommands(String commands) {
+    }
 }
