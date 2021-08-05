@@ -10,12 +10,16 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) {
-        if(command.equals("M")){
-            moveRover();
-        } else if (command.equals("L")){
-            turnLeft();
-        } else if (command.equals("R")){
-            turnRight();
+        switch (command) {
+            case "M":
+                moveRover();
+                break;
+            case "L":
+                turnLeft();
+                break;
+            case "R":
+                turnRight();
+                break;
         }
     }
 
