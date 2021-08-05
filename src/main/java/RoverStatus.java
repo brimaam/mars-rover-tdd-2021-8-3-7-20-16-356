@@ -1,7 +1,7 @@
 public class RoverStatus {
-    private int locationX;
-    private int locationY;
-    private String direction;
+    private final int locationX;
+    private final int locationY;
+    private final String direction;
 
     public RoverStatus(int locationX, int locationY, String direction) {
         this.locationX = locationX;
