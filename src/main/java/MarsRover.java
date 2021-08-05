@@ -31,6 +31,8 @@ public class MarsRover {
             y++;
         } else if (direction.equals("S")) {
             y--;
+        } else if (direction.equals("E")) {
+            x++;
         }
         this.status = new RoverStatus(x, y, direction);
     }
