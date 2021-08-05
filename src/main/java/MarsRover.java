@@ -27,12 +27,12 @@ public class MarsRover {
         int x = this.status.getLocationX();
         int y = this.status.getLocationY();
         String direction = this.status.getDirection();
-        if(direction.equals("N")){
+        if (direction.equals("N")) {
             y++;
-        } else if (direction.equals("S")){
+        } else if (direction.equals("S")) {
             y--;
         }
-        this.status = new RoverStatus(x,y,direction);
+        this.status = new RoverStatus(x, y, direction);
     }
 
     private void turnLeft() {
@@ -40,19 +40,19 @@ public class MarsRover {
         int y = this.status.getLocationY();
         String direction = this.status.getDirection();
 
-        if(direction.equals("N")) direction = "W";
+        if (direction.equals("N")) direction = "W";
 
-        this.status = new RoverStatus(x,y ,direction);
+        this.status = new RoverStatus(x, y, direction);
     }
 
-    private void turnRight(){
+    private void turnRight() {
         int x = this.status.getLocationX();
         int y = this.status.getLocationY();
         String direction = this.status.getDirection();
 
-        if(direction.equals("N")) direction = "E";
+        if (direction.equals("N")) direction = "E";
 
-        this.status = new RoverStatus(x,y ,direction);
+        this.status = new RoverStatus(x, y, direction);
     }
 
 }
