@@ -37,6 +37,9 @@ public class MarsRover {
             case "E":
                 x++;
                 break;
+            case "W":
+                x--;
+                break;
         }
         this.status = new RoverStatus(x, y, direction);
     }
