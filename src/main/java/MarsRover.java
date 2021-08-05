@@ -27,12 +27,16 @@ public class MarsRover {
         int x = this.status.getLocationX();
         int y = this.status.getLocationY();
         String direction = this.status.getDirection();
-        if (direction.equals("N")) {
-            y++;
-        } else if (direction.equals("S")) {
-            y--;
-        } else if (direction.equals("E")) {
-            x++;
+        switch (direction) {
+            case "N":
+                y++;
+                break;
+            case "S":
+                y--;
+                break;
+            case "E":
+                x++;
+                break;
         }
         this.status = new RoverStatus(x, y, direction);
     }
