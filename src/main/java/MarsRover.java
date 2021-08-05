@@ -92,8 +92,6 @@ public class MarsRover {
 
     public void executeCommands(String commands) {
         String[] command = commands.split("");
-        for(String action:command){
-            executeCommand(action);
-        }
+        for (String action : command) executeCommand(action);
     }
 }
