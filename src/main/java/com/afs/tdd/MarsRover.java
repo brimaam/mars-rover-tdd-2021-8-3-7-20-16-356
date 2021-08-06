@@ -3,6 +3,11 @@ package com.afs.tdd;
 public class MarsRover {
     RoverStatus status;
 
+    private final String NORTH = "N";
+    private final String SOUTH = "S";
+    private final String EAST = "E";
+    private final String WEST = "W";
+
     public MarsRover(RoverStatus status) {
         this.status = status;
     }
@@ -30,16 +35,16 @@ public class MarsRover {
         int y = this.status.getLocationY();
         String direction = this.status.getDirection();
         switch (direction) {
-            case "N":
+            case NORTH:
                 y++;
                 break;
-            case "S":
+            case SOUTH:
                 y--;
                 break;
-            case "E":
+            case EAST:
                 x++;
                 break;
-            case "W":
+            case WEST:
                 x--;
                 break;
         }
@@ -52,17 +57,17 @@ public class MarsRover {
         String direction = this.status.getDirection();
 
         switch (direction) {
-            case "N":
-                direction = "W";
+            case NORTH:
+                direction = WEST;
                 break;
-            case "S":
-                direction = "E";
+            case SOUTH:
+                direction = EAST;
                 break;
-            case "E":
-                direction = "N";
+            case EAST:
+                direction = NORTH;
                 break;
-            case "W":
-                direction = "S";
+            case WEST:
+                direction = SOUTH;
                 break;
         }
 
@@ -75,17 +80,17 @@ public class MarsRover {
         String direction = this.status.getDirection();
 
         switch (direction) {
-            case "N":
-                direction = "E";
+            case NORTH:
+                direction = EAST;
                 break;
-            case "S":
-                direction = "W";
+            case SOUTH:
+                direction = WEST;
                 break;
-            case "E":
-                direction = "S";
+            case EAST:
+                direction = SOUTH;
                 break;
-            case "W":
-                direction = "N";
+            case WEST:
+                direction = NORTH;
                 break;
         }
 
