@@ -1,3 +1,5 @@
+package com.afs.tdd;
+
 public class RoverStatus {
     private final int locationX;
     private final int locationY;
