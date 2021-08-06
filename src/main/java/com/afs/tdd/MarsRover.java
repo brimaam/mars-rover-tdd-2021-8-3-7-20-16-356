@@ -27,6 +27,10 @@ public class MarsRover {
             case "R":
                 turnRight();
                 break;
+            default:
+                String[] act = command.split("");
+                for (String action : act) executeCommand(action);
+
         }
     }
 
@@ -95,10 +99,5 @@ public class MarsRover {
         }
 
         this.status = new RoverStatus(x, y, direction);
-    }
-
-    public void executeCommands(String commands) {
-        String[] command = commands.split("");
-        for (String action : command) executeCommand(action);
     }
 }
