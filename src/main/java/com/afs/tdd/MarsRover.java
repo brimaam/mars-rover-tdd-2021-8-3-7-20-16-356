@@ -1,12 +1,11 @@
 package com.afs.tdd;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
     RoverStatus status;
-
-    private final String NORTH = "N";
-    private final String SOUTH = "S";
-    private final String EAST = "E";
-    private final String WEST = "W";
+    private final List<String> DIRECTIONS = Arrays.asList("N","W","S","E");
 
     public MarsRover(RoverStatus status) {
         this.status = status;
@@ -30,7 +29,6 @@ public class MarsRover {
             default:
                 String[] act = command.split("");
                 for (String action : act) executeCommand(action);
-
         }
     }
 
@@ -38,66 +36,33 @@ public class MarsRover {
         int x = this.status.getLocationX();
         int y = this.status.getLocationY();
         String direction = this.status.getDirection();
-        switch (direction) {
-            case NORTH:
-                y++;
-                break;
-            case SOUTH:
-                y--;
-                break;
-            case EAST:
-                x++;
-                break;
-            case WEST:
-                x--;
-                break;
+
+        if(DIRECTIONS.get(0).equals(direction)){
+            y++;
+        } else if (DIRECTIONS.get(1).equals(direction)) {
+            x--;
+        } else if (DIRECTIONS.get(2).equals(direction)) {
+            y--;
+        } else if (DIRECTIONS.get(3).equals(direction)) {
+            x++;
         }
+
         this.status = new RoverStatus(x, y, direction);
     }
 
     private void turnLeft() {
-        int x = this.status.getLocationX();
-        int y = this.status.getLocationY();
-        String direction = this.status.getDirection();
+        int index = DIRECTIONS.indexOf(status.getDirection());
+        int size = DIRECTIONS.size();
+        String newDirection = DIRECTIONS.get((index + 1) % size);
 
-        switch (direction) {
-            case NORTH:
-                direction = WEST;
-                break;
-            case SOUTH:
-                direction = EAST;
-                break;
-            case EAST:
-                direction = NORTH;
-                break;
-            case WEST:
-                direction = SOUTH;
-                break;
-        }
-
-        this.status = new RoverStatus(x, y, direction);
+        this.status = new RoverStatus(status.getLocationX(), status.getLocationY(), newDirection);
     }
 
     private void turnRight() {
-        int x = this.status.getLocationX();
-        int y = this.status.getLocationY();
-        String direction = this.status.getDirection();
+        int index = DIRECTIONS.indexOf(this.status.getDirection());
+        int size = DIRECTIONS.size();
+        String newDirection = DIRECTIONS.get((index - 1 + size) % size);
 
-        switch (direction) {
-            case NORTH:
-                direction = EAST;
-                break;
-            case SOUTH:
-                direction = WEST;
-                break;
-            case EAST:
-                direction = SOUTH;
-                break;
-            case WEST:
-                direction = NORTH;
-                break;
-        }
-
-        this.status = new RoverStatus(x, y, direction);
+        this.status = new RoverStatus(status.getLocationX(), this.status.getLocationY(), newDirection);
     }
 }
